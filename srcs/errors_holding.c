@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/12 20:37:01 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/12 22:22:12 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static size_t	skip_i_and_sign(const char *s, int *sign)
 	}
 	return (i);
 }
+
 int	is_valid_int(const char *s)
 {
 	long long int	atonb;
@@ -49,4 +50,38 @@ int	is_valid_int(const char *s)
 	if (atonb >= MIN_INT && atonb <= MAX_INT)
 		return (1);
 	return (0);
+}
+
+char	**create_args(const char *s)
+{
+	char	*whitespaces;
+	char	**args;
+
+	whitespaces = str_whitespaces();
+	if (!whitespaces)
+		return (NULL);
+	args = ft_split_charset(s, whitespaces);
+	if (!args)
+		return (free(whitespaces), NULL);
+	free(whitespaces);
+	return (args);
+}
+
+int	is_valid_string(const char *s)
+{
+	size_t	i;
+	char	**args;
+
+	args = create_args(s);
+	if (!args)
+		return (0);
+	i = 0;
+	while (args[i])
+	{
+		if (!is_valid_int(args[i]))
+			return (free_split(args), 0);
+		i++;
+	}
+	free_split(args);
+	return (1);
 }

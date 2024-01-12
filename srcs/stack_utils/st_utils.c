@@ -6,13 +6,13 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 05:17:29 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/12 20:40:16 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/12 22:42:58 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_stack	*st_new(int nb)
+t_stack	*st_new(int nb, int pos)
 {
 	t_stack	*st;
 
@@ -20,6 +20,7 @@ t_stack	*st_new(int nb)
 	if (!st)
 		return (NULL);
 	st->nb = nb;
+	st->pos = pos;
 	st->next = NULL;
 	return (st);
 }
