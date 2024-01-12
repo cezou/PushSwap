@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_holding.c                                   :+:      :+:    :+:   */
+/*   errors_holding_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/12 22:22:12 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/12 23:51:04 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,27 @@ int	is_valid_string(const char *s)
 	}
 	free_split(args);
 	return (1);
+}
+
+int	is_there_a_double(t_stack *st)
+{
+	t_stack	*start;
+	int		temp;
+	int		pos;
+
+	start = st;
+	while (start)
+	{
+		temp = st->nb;
+		pos = st->pos;
+		while (st)
+		{
+			if (st->pos != pos && temp == st->nb)
+				return (1);
+			st = st->next;
+		}
+		st = start->next;
+		start = start->next;
+	}
+	return (0);
 }
