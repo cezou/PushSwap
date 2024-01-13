@@ -26,7 +26,7 @@ clean:
 	@make --silent clean -C ../libft
 
 echo: #echo "Made printf!" en vert
-	@echo "$(UP)$(ERASE)\033[32m         Greenlight printfd!\033[0m"
+	@echo "$(UP)$(ERASE)\033[32m         Greenlight printfs!\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)

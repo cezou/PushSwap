@@ -26,7 +26,7 @@ clean:
 	@make --silent fclean -C $(IDIR)/QuoicouLibft
 
 fclean:
-	@if [ -f $(NAME) ] ]; then \
+	@if [ -f $(NAME) ]; then \
 			make --silent fclean_no_check; \
 	fi
 

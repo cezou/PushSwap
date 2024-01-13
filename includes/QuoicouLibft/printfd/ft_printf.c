@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:16:18 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/12 17:52:37 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/13 19:12:40 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,26 @@ static int	case_percent(const char *s, int i, va_list ap)
 	else if (s[i] == 'X')
 		return (ft_puthexa_max_fd(va_arg(ap, unsigned int), 1));
 	return (0);
+}
+
+void	v_printf(const char *s, ...)
+{
+	va_list	ap;
+	int		i;
+
+	if (!s)
+		return ;
+	va_start(ap, s);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == '%')
+			case_percent(s, i++, ap);
+		else
+			ft_putchar_fd(s[i], 1);
+		i++;
+	}
+	va_end(ap);
 }
 
 int	ft_printf(const char *s, ...)

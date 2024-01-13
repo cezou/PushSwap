@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:33:49 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/12 19:58:40 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/13 18:12:00 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ int					ft_putnbr_fd(int n, int fd);
 // BONUS
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+// split_charset utils
+int					is_sep(const char c, char *charset);
+int					lenbsep(const char *s, char *charset, int indice_s);
+int					ft_nb_mots(const char *str, char *charset);
+char				**if_str_null(const char *str);
 
 // Linked list
 typedef struct s_list
