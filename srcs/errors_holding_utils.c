@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/12 23:51:04 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/13 21:30:34 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	is_there_a_double(t_stack *st)
 {
 	t_stack	*start;
 	int		temp;
-	int		pos;
+	size_t	pos;
 
 	start = st;
 	while (start)
