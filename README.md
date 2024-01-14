@@ -24,5 +24,5 @@ Sort a stack (a Chained List) with another one and mandatory operations :
 
 ```bash
 $ make
-$ ./push_swap 2 1 3 6 5 8
+$ ./push_swap 2 1 3 6 5
 ```
