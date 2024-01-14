@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ops_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 20:49:04 by cviegas          ###   ########.fr       */
+/*   Created: 2024/01/14 01:09:10 by cviegas           #+#    #+#             */
+/*   Updated: 2024/01/14 20:42:44 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+void	ra(t_tuple *t)
 {
-	t_tuple	t;
+	rotate(&t->a);
+	ft_printf("ra\n");
+}
 
-	if (!init_and_hold_errors(&t.a, ac, av))
-		return (0);
-	t.b = NULL;
-	t_print(t);
-	pb(&t);
-	pb(&t);
-	pb(&t);
-	rrr(&t);
-	ra(&t);
-	t_print(t);
-	t_clear(&t);
+void	rb(t_tuple *t)
+{
+	rotate(&t->b);
+	ft_printf("rb\n");
+}
+
+void	rr(t_tuple *t)
+{
+	rotate(&t->a);
+	rotate(&t->b);
+	ft_printf("rr\n");
+}
+
+void	rra(t_tuple *t)
+{
+	rrotate(&t->a);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_tuple *t)
+{
+	rrotate(&t->b);
+	ft_printf("rrb\n");
 }

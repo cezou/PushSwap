@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:13:25 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/13 21:11:15 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/14 20:45:50 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,26 @@ void	st_print(t_stack *st)
 	}
 }
 
-void	print_both(t_stack *a, t_stack *b)
+void	t_print(t_tuple t)
 {
-	while (a || b)
+	ft_printf("\n");
+	while (t.a || t.b)
 	{
-		if (a)
+		if (t.a)
 		{
-			ft_printf("%d ", a->nb);
-			a = a->next;
+			ft_printf("%d ", t.a->nb);
+			t.a = t.a->next;
 		}
 		else
 			ft_printf("  ");
-		if (b)
+		if (t.b)
 		{
-			ft_printf("%d", b->nb);
-			b = b->next;
+			ft_printf("%d", t.b->nb);
+			t.b = t.b->next;
 		}
 		ft_printf("\n");
 	}
-	ft_printf("- -\na b\n");
+	ft_printf("- -\na b\n\n");
 }
 
 size_t	st_size(t_stack *st)

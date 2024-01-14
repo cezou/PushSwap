@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   st_operations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 19:42:59 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 01:07:33 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/14 20:26:59 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-}
 
 void	swap(t_stack *st)
 {
@@ -33,7 +27,7 @@ void	push(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
 
-	if (!a)
+	if (!(*a))
 		return ;
 	st_add_front(b, st_new((*a)->nb, 0));
 	temp = *a;
@@ -53,8 +47,18 @@ void	rotate(t_stack **st)
 	free(temp);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rrotate(t_stack **st)
 {
-	rotate(a);
-	rotate(b);
+	t_stack	*b_last;
+	t_stack	*last;
+
+	if (st_size(*st) <= 1)
+		return ;
+	b_last = *st;
+	while (b_last->next->next)
+		b_last = b_last->next;
+	last = b_last->next;
+	st_add_front(st, st_new(last->nb, 0));
+	b_last->next = NULL;
+	free(last);
 }

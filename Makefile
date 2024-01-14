@@ -1,13 +1,13 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS =
+CFLAGS = -Wall -Wextra -Werror
 
 IDIR = includes
 LIBFT = $(IDIR)/QuoicouLibft/libft.a
 
 DIR = srcs
-SRCS = $(DIR)/*.c $(DIR)/stack_utils/st_*
+SRCS = $(DIR)/*.c
 OBJS = $(SRCS:.c=.o)
 
 UP = \033[1A

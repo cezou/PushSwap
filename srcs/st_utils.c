@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 05:17:29 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/13 21:26:15 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/14 20:49:18 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,10 @@ void	st_clear(t_stack **st)
 		free(current);
 	}
 	*st = NULL;
+}
+
+void	t_clear(t_tuple *t)
+{
+	st_clear(&t->a);
+	st_clear(&t->b);
 }
