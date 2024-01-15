@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:47:45 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 17:20:26 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/15 19:36:01 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 	return (1);
 }
 
-int	init_and_hold_errors(t_stack **stack_a, int ac, char **av)
+int	init_and_hold_errors(t_stack **a, t_stack **b, int ac, char **av)
 {
 	char	**args;
 	int		are_args_a_string;
@@ -37,18 +37,19 @@ int	init_and_hold_errors(t_stack **stack_a, int ac, char **av)
 
 	if (!one_arg(&are_args_a_string, &args, ac, av))
 		return (0);
-	*stack_a = NULL;
+	*a = NULL;
+	*b = NULL;
 	i = 0;
 	while (args[i])
 	{
 		if (!is_valid_int(args[i]))
-			return (free_args(args, are_args_a_string), st_clear(stack_a),
+			return (free_args(args, are_args_a_string), st_clear(a),
 				(void)ft_printf("Error\n"), 0);
-		st_add_back(stack_a, st_new(ft_atoi(args[i]), i));
+		st_add_back(a, st_new(ft_atoi(args[i]), i));
 		i++;
 	}
-	if (is_there_a_double(*stack_a))
-		return (free_args(args, are_args_a_string), st_clear(stack_a),
+	if (is_there_a_double(*a))
+		return (free_args(args, are_args_a_string), st_clear(a),
 			(void)ft_printf("Error\n"), 0);
 	free_args(args, are_args_a_string);
 	return (1);

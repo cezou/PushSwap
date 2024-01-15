@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 20:48:52 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/15 19:36:32 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_tuple
 	t_stack			*b;
 }					t_tuple;
 
-// Operations
+// Stack Operations
 void				swap(t_stack *st);
 void				push(t_stack **a, t_stack **b);
 void				rotate(t_stack **st);
@@ -63,7 +63,8 @@ void				t_print(t_tuple t);
 void				t_clear(t_tuple *t);
 
 // Errors Holding
-int					init_and_hold_errors(t_stack **stack_a, int ac, char **av);
+int					init_and_hold_errors(t_stack **a, t_stack **b, int ac,
+						char **av);
 int					is_whitespace(char c);
 int					is_valid_int(const char *s);
 int					is_valid_string(const char *s);
