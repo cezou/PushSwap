@@ -6,63 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 18:52:05 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 19:22:09 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// When there is only two numbers in stack a
-void	sort_2(t_tuple *t)
-{
-	if (t->a->nb > t->a->next->nb)
-		ra(t);
-}
-
-// When there is only three numbers in stack a
-void	sort_3(t_tuple *t)
-{
-	t_stack	*first;
-	t_stack	*second;
-	t_stack	*third;
-
-	first = t->a;
-	second = first->next;
-	third = second->next;
-	if (first->nb < second->nb && second->nb < third->nb)
-		return ;
-	if (first->nb > second->nb && second->nb > third->nb)
-		return (sa(*t), rra(t));
-	if (first->nb < second->nb && second->nb > third->nb)
-	{
-		if (first->nb < third->nb)
-			return (rra(t), sa(*t));
-		return (rra(t));
-	}
-	if (first->nb > second->nb && second->nb < third->nb
-		&& first->nb > third->nb)
-		return (ra(t));
-	return (sa(*t));
-}
-
-void	turkish_algo(t_tuple *t)
-{
-	pa(t);
-	if (st_size(t->a) > 3)
-		pa(t);
-	while (st_size(t->a) > 3)
-	{
-		// Push to B
-		// Sort in descending order B
-	}
-	sort_3(t);
-	while (st_size(t->b) > 0)
-	{
-		// Push to A
-		// Sort it in ascending order.
-	}
-	// Sort MIN
-}
 
 void	sort_algo(t_tuple *t)
 {
@@ -84,7 +32,10 @@ int	main(int ac, char **av)
 	if (!init_and_hold_errors(&t.a, &t.b, ac, av))
 		return (0);
 	t_print(t);
-	sort_algo(&t);
-	t_print(t);
+	if (is_sorted(t.a))
+		ft_printf("Sorted!");
+	else
+		ft_printf("Not Sorted! =(");
+	// sort_algo(&t);
 	t_clear(&t);
 }
