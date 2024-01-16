@@ -6,13 +6,13 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:31:53 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:58:24 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:53:28 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_whitespace(char c)
+bool	is_whitespace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);

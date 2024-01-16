@@ -6,13 +6,13 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:47:45 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/15 19:36:01 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:52:34 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
+static bool	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 {
 	*are_args_a_string = 0;
 	if (ac == 2)
@@ -29,7 +29,7 @@ static int	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 	return (1);
 }
 
-int	init_and_hold_errors(t_stack **a, t_stack **b, int ac, char **av)
+bool	init_and_hold_errors(t_stack **a, t_stack **b, int ac, char **av)
 {
 	char	**args;
 	int		are_args_a_string;

@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 17:29:48 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:55:20 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	skip_i_and_sign(const char *s, int *sign)
 	return (i);
 }
 
-int	is_valid_int(const char *s)
+bool	is_valid_int(const char *s)
 {
 	long long int	atonb;
 	size_t			i;
@@ -67,7 +67,7 @@ char	**create_args(const char *s)
 	return (args);
 }
 
-int	is_valid_string(const char *s)
+bool	is_valid_string(const char *s)
 {
 	size_t	i;
 	char	**args;
@@ -86,7 +86,7 @@ int	is_valid_string(const char *s)
 	return (1);
 }
 
-int	is_there_a_double(t_stack *st)
+bool	is_there_a_double(t_stack *st)
 {
 	t_stack	*start;
 	int		temp;

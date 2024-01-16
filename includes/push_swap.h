@@ -6,13 +6,14 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/15 19:36:32 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:56:26 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "QuoicouLibft/libft.h"
+# include "stdbool.h"
 # define MIN_INT -2147483648
 # define MAX_INT 2147483647
 
@@ -21,6 +22,10 @@ typedef struct s_stack
 {
 	int				nb;
 	size_t			pos;
+	size_t			push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 
@@ -59,16 +64,17 @@ void				st_clear(t_stack **st);
 t_stack				*st_new(int nb, int pos);
 size_t				st_size(t_stack *st);
 void				st_print(t_stack *st);
+
 void				t_print(t_tuple t);
 void				t_clear(t_tuple *t);
 
 // Errors Holding
-int					init_and_hold_errors(t_stack **a, t_stack **b, int ac,
+bool				init_and_hold_errors(t_stack **a, t_stack **b, int ac,
 						char **av);
-int					is_whitespace(char c);
-int					is_valid_int(const char *s);
-int					is_valid_string(const char *s);
-int					is_there_a_double(t_stack *st);
+bool				is_whitespace(char c);
+bool				is_valid_int(const char *s);
+bool				is_valid_string(const char *s);
+bool				is_there_a_double(t_stack *st);
 char				*str_whitespaces(void);
 char				**create_args(const char *s);
 

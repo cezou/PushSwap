@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:13:25 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 20:45:50 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:51:12 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,7 @@ size_t	st_size(t_stack *st)
 	}
 	return (i);
 }
+
+// bool	is_stack_sorted(t_stack *st)
+// {
+// }
