@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 19:42:59 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:29:18 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:36:23 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	swap(t_stack *st)
 	st->next->nb = temp;
 }
 
+// Push the first element of a stack to the top of another
 void	push(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
