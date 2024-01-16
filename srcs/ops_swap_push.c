@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 19:42:59 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:08:16 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:58:07 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,16 @@ void	ss(t_tuple t)
 	ft_printf("ss\n");
 }
 
-// pa (push a): Take the first element at the top of b and put it at the top of a
+// pa (push a):
+// Take the first element at the top of b and put it at the top of a
 void	pa(t_tuple *t)
 {
 	push(&t->b, &t->a);
 	ft_printf("pa\n");
 }
 
-// pb (push b): Take the first element at the top of a and put it at the top of b.
+// pb (push b):
+// Take the first element at the top of a and put it at the top of b.
 void	pb(t_tuple *t)
 {
 	push(&t->a, &t->b);

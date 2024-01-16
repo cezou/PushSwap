@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:31:53 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/13 20:36:45 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:58:24 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	is_whitespace(char c)
 	return (0);
 }
 
+// Creates a String (char *) with all whitespaces
+// (to use it with split charset after)
 char	*str_whitespaces(void)
 {
 	char	*whitespaces;
