@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:12:08 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:14:49 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	sort_2(t_tuple *t)
 		ra(t);
 }
 
+// When there is only three numbers in stack a
 void	sort_3(t_tuple *t)
 {
 	t_stack	*first;
