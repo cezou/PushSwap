@@ -6,13 +6,14 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:38:04 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/15 20:05:41 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:08:56 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // rrr : rra and rrb at the same time.
+// Last git test
 void	rrr(t_tuple *t)
 {
 	rrotate(&t->a);
