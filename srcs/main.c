@@ -6,17 +6,19 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:01:19 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:12:08 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+// When there is only two numbers in stack a
 void	sort_2(t_tuple *t)
 {
 	if (t->a->nb > t->a->next->nb)
 		ra(t);
 }
+
 void	sort_3(t_tuple *t)
 {
 	t_stack	*first;
