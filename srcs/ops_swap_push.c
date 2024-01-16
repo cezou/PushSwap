@@ -6,14 +6,14 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 19:42:59 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:03:40 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:05:21 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // sa (swap a): Swap the first 2 elements at the top of stack a.
-// test git
+// test github
 void	sa(t_tuple t)
 {
 	swap(t.a);
