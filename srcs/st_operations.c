@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 19:42:59 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:36:23 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:44:41 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	push(t_stack **a, t_stack **b)
 	free(temp);
 }
 
+// Shift up all elements of stack b by 1. The first element becomes the last one.
 void	rotate(t_stack **st)
 {
 	t_stack	*temp;
@@ -49,6 +50,7 @@ void	rotate(t_stack **st)
 	free(temp);
 }
 
+// Shift up all elements of stack b by 1. The first element becomes the last one.
 void	rrotate(t_stack **st)
 {
 	t_stack	*b_last;
