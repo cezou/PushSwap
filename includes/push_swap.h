@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 19:23:31 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:34:05 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_stack
 	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-
 }					t_stack;
 
 // Errors Holding
@@ -59,6 +58,7 @@ void				st_add_front(t_stack **st, t_stack *new);
 void				st_clear(t_stack **st);
 t_stack				*st_new(int nb, int pos);
 size_t				st_size(t_stack *st);
+t_stack				*st_max(t_stack *st);
 void				st_print(t_stack *st);
 void				t_print(t_tuple t);
 void				t_clear(t_tuple *t);
@@ -87,5 +87,9 @@ bool				is_sorted(t_stack *st);
 void				sort_2(t_tuple *t);
 void				sort_3(t_tuple *t);
 void				turkish_algo(t_tuple *t);
+
+// Init
+void				init_stacks(t_tuple *t);
+void				set_pos_and_median(t_stack *st);
 
 #endif

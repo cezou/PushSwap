@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 19:22:09 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:28:35 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	sort_algo(t_tuple *t)
 {
-	if (st_size(t->a) <= 1)
+	if (st_size(t->a) <= 1 || is_sorted(t->a))
 		return ;
 	if (st_size(t->a) == 2)
 		return (sort_2(t));
 	if (st_size(t->a) == 3)
 		return (sort_3(t));
-	// turkish_algo(t);
+	turkish_algo(t);
 }
 
 int	main(int ac, char **av)
@@ -32,10 +32,9 @@ int	main(int ac, char **av)
 	if (!init_and_hold_errors(&t.a, &t.b, ac, av))
 		return (0);
 	t_print(t);
-	if (is_sorted(t.a))
-		ft_printf("Sorted!");
-	else
-		ft_printf("Not Sorted! =(");
-	// sort_algo(&t);
+	sort_algo(&t);
+	pb(&t);
+	init_stacks(&t);
+	t_print(t);
 	t_clear(&t);
 }

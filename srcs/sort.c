@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:11:36 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 19:23:25 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:27:54 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,20 @@ void	sort_3(t_tuple *t)
 
 void	turkish_algo(t_tuple *t)
 {
-	pa(t);
+	pb(t);
 	if (st_size(t->a) > 3)
-		pa(t);
-	while (st_size(t->a) > 3)
-	{
-		// Push to B
-		// Sort in descending order B
-	}
-	sort_3(t);
-	while (st_size(t->b) > 0)
-	{
-		// Push to A
-		// Sort it in ascending order.
-	}
-	// Sort MIN
+		pb(t);
+	init_stacks(t);
+	// while (st_size(t->a) > 3)
+	// {
+	// }
+	// sort_3(t);
+	// while (st_size(t->b) > 0)
+	// {
+	// 	// Push to A
+	// 	// Sort it in ascending order.
+	// }
+	// // Sort MIN
 }
 
 bool	is_sorted(t_stack *st)
