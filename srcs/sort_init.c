@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:53:26 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/17 16:37:00 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:44:08 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	set_pos_and_median(t_stack *st)
 	while (st)
 	{
 		if (i <= median)
-			st->above_median = 1;
+			st->is_above_median = 1;
 		else
-			st->above_median = 0;
+			st->is_above_median = 0;
 		st->pos = i;
 		st = st->next;
 		i++;
 	}
 }
 
-// The target is the closest smaller number in stack b. If there is no smaller number,
-// then the target becomes the bigger number of the stack b.
+// The target is the closest smaller number in stack b. If there is no smaller
+// number, then the target becomes the bigger number of the stack b.
 void	set_target_a(t_tuple *t)
 {
 	t_stack	*target;
@@ -61,12 +61,58 @@ void	set_target_a(t_tuple *t)
 		a = a->next;
 	}
 }
+// The push cost of each stack is its cost to be on top
+// + the cost for its target to be on top
+void	set_push_costs_a(t_tuple *t)
+{
+	t_stack	*a;
+
+	a = t->a;
+	while (a)
+	{
+		if (a->is_above_median)
+			a->push_cost = a->pos;
+		else
+			a->push_cost = st_size(t->a) - a->pos;
+		if (a->target->is_above_median)
+			a->push_cost += a->target->pos;
+		else
+			a->push_cost += st_size(t->b) - a->target->pos;
+		a = a->next;
+	}
+}
+
+// We find the cheapest (the min(cost))
+// Then we sets all is_cheapest booleans if it's him or not
+void	set_cheapest_a(t_tuple *t)
+{
+	t_stack	*a;
+	t_stack	*cheapest;
+
+	cheapest = t->a;
+	a = cheapest->next;
+	while (a)
+	{
+		if (a->push_cost < cheapest->push_cost)
+			cheapest = a;
+		a = a->next;
+	}
+	a = t->a;
+	while (a)
+	{
+		if (a->pos == cheapest->pos)
+			a->is_cheapest = 1;
+		else
+			a->is_cheapest = 0;
+		a = a->next;
+	}
+}
 
 void	init_stacks(t_tuple *t)
 {
 	set_pos_and_median(t->a);
 	set_pos_and_median(t->b);
 	set_target_a(t);
-	// Analyze cost;
-	// find cheapest;
+	set_push_costs_a(t);
+	set_cheapest_a(t);
 }

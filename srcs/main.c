@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/17 15:28:35 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:33:21 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int	main(int ac, char **av)
 		return (0);
 	if (!init_and_hold_errors(&t.a, &t.b, ac, av))
 		return (0);
-	t_print(t);
+	// t_print(t);
 	sort_algo(&t);
-	pb(&t);
-	init_stacks(&t);
-	t_print(t);
+	// t_print(t);
 	t_clear(&t);
 }

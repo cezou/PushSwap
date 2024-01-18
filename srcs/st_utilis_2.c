@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:13:25 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/17 16:11:46 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:47:40 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ void	st_print(t_stack *st)
 
 void	t_print(t_tuple t)
 {
-	ft_printf("\n   a | b  \n-----|-----\n");
+	ft_printf("\ni n p c  | b  \n---------|-----\n");
 	while (t.a || t.b)
 	{
 		if (t.a)
 		{
-			ft_printf("%d: %d | ", t.a->pos, t.a->nb);
+			ft_printf("%d %d %d %d  | ", t.a->pos, t.a->nb, t.a->push_cost,
+				t.a->is_cheapest);
 			t.a = t.a->next;
 		}
 		else

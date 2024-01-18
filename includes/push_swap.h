@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/17 16:34:05 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:07:12 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_stack
 	int				nb;
 	size_t			pos;
 	size_t			push_cost;
-	bool			above_median;
-	bool			cheapest;
+	bool			is_above_median;
+	bool			is_cheapest;
 	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
