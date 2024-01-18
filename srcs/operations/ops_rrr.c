@@ -6,11 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:38:04 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:10:37 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:44:13 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 // rrr : rra and rrb at the same time.
 void	rrr(t_tuple *t)

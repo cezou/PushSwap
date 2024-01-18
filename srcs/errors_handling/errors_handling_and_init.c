@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_holding_and_init.c                          :+:      :+:    :+:   */
+/*   errors_handling_and_init.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:47:45 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 18:52:34 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:48:01 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static bool	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 {
@@ -29,7 +29,7 @@ static bool	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 	return (1);
 }
 
-bool	init_and_hold_errors(t_stack **a, t_stack **b, int ac, char **av)
+bool	init_and_handle_errors(t_stack **a, t_stack **b, int ac, char **av)
 {
 	char	**args;
 	int		are_args_a_string;

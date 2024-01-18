@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/18 14:07:12 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:47:04 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ typedef struct s_stack
 	bool			is_cheapest;
 	struct s_stack	*target;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }					t_stack;
 
 // Errors Holding
-bool				init_and_hold_errors(t_stack **a, t_stack **b, int ac,
+bool				init_and_handle_errors(t_stack **a, t_stack **b, int ac,
 						char **av);
 bool				is_whitespace(char c);
 bool				is_valid_int(const char *s);
@@ -53,12 +52,13 @@ typedef struct s_tuple
 }					t_tuple;
 
 // Stack & Tuple Utils
+t_stack				*st_new(int nb, int pos);
 void				st_add_back(t_stack **stack, t_stack *new);
 void				st_add_front(t_stack **st, t_stack *new);
-void				st_clear(t_stack **st);
-t_stack				*st_new(int nb, int pos);
 size_t				st_size(t_stack *st);
 t_stack				*st_max(t_stack *st);
+t_stack				*st_min(t_stack *st);
+void				st_clear(t_stack **st);
 void				st_print(t_stack *st);
 void				t_print(t_tuple t);
 void				t_clear(t_tuple *t);
@@ -82,14 +82,24 @@ void				rra(t_tuple *t);
 void				rrb(t_tuple *t);
 void				rrr(t_tuple *t);
 
-// Sort
+// SORT
+void				sort_algo(t_tuple *t);
+void				turkish_algo(t_tuple *t);
 bool				is_sorted(t_stack *st);
 void				sort_2(t_tuple *t);
 void				sort_3(t_tuple *t);
-void				turkish_algo(t_tuple *t);
 
-// Init
-void				init_stacks(t_tuple *t);
+// Init before Moves
+void				init_stacks_a(t_tuple *t);
 void				set_pos_and_median(t_stack *st);
+void				set_target_a(t_tuple *t);
+void				set_push_costs_a(t_tuple *t);
+void				set_cheapest_a(t_tuple *t);
+void				init_stacks_b(t_tuple *t);
+void				set_target_b(t_tuple *t);
+
+// MOVE
+void				move_cheapest_to_b(t_tuple *t);
+void				move_to_a(t_tuple *t);
 
 #endif

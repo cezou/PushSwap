@@ -6,11 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 05:17:29 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/14 20:49:18 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:44:39 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_stack	*st_new(int nb, int pos)
 {

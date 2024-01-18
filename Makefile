@@ -1,13 +1,22 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 IDIR = includes
 LIBFT = $(IDIR)/QuoicouLibft/libft.a
 
 DIR = srcs
-SRCS = $(DIR)/*.c
+EDIR = $(DIR)/errors_handling
+ODIR = $(DIR)/operations
+SDIR = $(DIR)/sort
+UDIR = $(DIR)/utils
+
+SRCS = $(DIR)/main.c \
+		$(EDIR)/errors_handling_and_init.c $(EDIR)/errors_handling_utils.c \
+		$(ODIR)/ops_rotate.c $(ODIR)/ops_rrr.c $(ODIR)/ops_swap_push.c $(ODIR)/st_operations.c \
+		$(SDIR)/sort.c $(SDIR)/sort_init_a.c $(SDIR)/sort_init_b.c $(SDIR)/sort_move.c \
+		$(UDIR)/string_utils.c $(UDIR)/st_utilis_2.c $(UDIR)/st_utils.c
 OBJS = $(SRCS:.c=.o)
 
 UP = \033[1A

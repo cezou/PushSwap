@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_holding_utils.c                             :+:      :+:    :+:   */
+/*   errors_handling_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 18:55:20 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:46:57 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static size_t	skip_i_and_sign(const char *s, int *sign)
 {

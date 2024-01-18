@@ -6,11 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 01:09:10 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:01:40 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:44:11 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 // ra (rotate a): Shift up all elements of stack a by 1.
 void	ra(t_tuple *t)

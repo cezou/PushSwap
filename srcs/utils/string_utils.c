@@ -6,11 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:31:53 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 18:53:28 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:44:42 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 bool	is_whitespace(char c)
 {

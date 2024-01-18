@@ -6,11 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 19:42:59 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/16 15:57:42 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:44:17 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 // Swap the two first elements of a specific stack
 void	swap(t_stack *st)
