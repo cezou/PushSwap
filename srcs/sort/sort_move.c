@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:02:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/18 18:32:14 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 18:51:56 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,41 @@ t_stack	*find_cheapest(t_stack *st)
 	return (st);
 }
 
+t_cheapest	init_temp_cheapest(t_stack *st)
+{
+	t_stack		*cheapest;
+	t_cheapest	new;
+
+	cheapest = find_cheapest(st);
+	new.target_nb = cheapest->target->nb;
+	new.cheapest_nb = cheapest->nb;
+	new.cheapest_is_above = cheapest->is_above_median;
+	new.target_is_above = cheapest->target->is_above_median;
+	return (new);
+}
+
 void	move_cheapest_to_b(t_tuple *t)
 {
-	t_stack	*cheapest;
-	int		cheapest_nb;
-	int		target_nb;
+	t_cheapest	c;
 
-	cheapest = find_cheapest(t->a);
-	target_nb = cheapest->target->nb;
-	cheapest_nb = cheapest->nb;
-	if (cheapest->is_above_median && cheapest->target->is_above_median)
-		while (t->a->nb != cheapest_nb && t->b->nb != target_nb)
+	c = init_temp_cheapest(t->a);
+	if (c.cheapest_is_above && c.target_is_above)
+		while (t->a->nb != c.cheapest_nb && t->b->nb != c.target_nb)
 			rr(t);
-	if (!(cheapest->is_above_median) && !(cheapest->target->is_above_median))
-		while (t->a->nb != cheapest_nb && t->b->nb != target_nb)
+	if (!c.cheapest_is_above && !c.target_is_above)
+		while (t->a->nb != c.cheapest_nb && t->b->nb != c.target_nb)
 			rrr(t);
-	if (cheapest->is_above_median)
-		while (t->a->nb != cheapest_nb)
+	if (c.cheapest_is_above)
+		while (t->a->nb != c.cheapest_nb)
 			ra(t);
 	else
-		while (t->a->nb != cheapest_nb)
+		while (t->a->nb != c.cheapest_nb)
 			rra(t);
-	if (cheapest->target->is_above_median)
-		while (t->b->nb != target_nb)
+	if (c.target_is_above)
+		while (t->b->nb != c.target_nb)
 			rb(t);
 	else
-		while (t->b->nb != target_nb)
+		while (t->b->nb != c.target_nb)
 			rrb(t);
 	pb(t);
 }

@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/18 17:47:04 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/18 18:50:34 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,14 @@ void				set_push_costs_a(t_tuple *t);
 void				set_cheapest_a(t_tuple *t);
 void				init_stacks_b(t_tuple *t);
 void				set_target_b(t_tuple *t);
+
+typedef struct s_cheapest
+{
+	int				target_nb;
+	int				cheapest_nb;
+	bool			cheapest_is_above;
+	bool			target_is_above;
+}					t_cheapest;
 
 // MOVE
 void				move_cheapest_to_b(t_tuple *t);
