@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors_handling_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/18 17:46:57 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/21 21:53:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ bool	is_valid_int(const char *s)
 	size_t			i;
 	int				sign;
 
+	if (!s || !s[0])
+			return (0);
 	atonb = 0;
 	sign = 1;
 	i = skip_i_and_sign(s, &sign);
+	if (!s[i])
+		return (0);
 	while (s[i])
 	{
-		if (s[i] && !ft_isdigit(s[i]))
+		if (!ft_isdigit(s[i]))
 			return (0);
 		atonb *= 10;
 		atonb += s[i] - '0';
