@@ -13,37 +13,42 @@
 #include "../../includes/push_swap.h"
 
 // ra (rotate a): Shift up all elements of stack a by 1.
-void	ra(t_tuple *t)
+void	ra(t_tuple *t, bool print_or_not)
 {
 	rotate(&t->a);
-	ft_printf("ra\n");
+	if (print_or_not)
+		ft_printf("ra\n");
 }
 
 // rb (rotate b): Shift up all elements of stack b by 1.
-void	rb(t_tuple *t)
+void	rb(t_tuple *t, bool print_or_not)
 {
 	rotate(&t->b);
-	ft_printf("rb\n");
+	if (print_or_not)
+		ft_printf("rb\n");
 }
 
 // rr : ra and rb at the same time.
-void	rr(t_tuple *t)
+void	rr(t_tuple *t, bool print_or_not)
 {
 	rotate(&t->a);
 	rotate(&t->b);
-	ft_printf("rr\n");
+	if (print_or_not)
+		ft_printf("rr\n");
 }
 
 // rra (reverse rotate a): Shift down all elements of stack a by 1.
-void	rra(t_tuple *t)
+void	rra(t_tuple *t, bool print_or_not)
 {
 	rrotate(&t->a);
-	ft_printf("rra\n");
+	if (print_or_not)
+		ft_printf("rra\n");
 }
 
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
-void	rrb(t_tuple *t)
+void	rrb(t_tuple *t, bool print_or_not)
 {
 	rrotate(&t->b);
-	ft_printf("rrb\n");
+	if (print_or_not)
+		ft_printf("rrb\n");
 }

@@ -13,9 +13,10 @@
 #include "../../includes/push_swap.h"
 
 // rrr : rra and rrb at the same time.
-void	rrr(t_tuple *t)
+void	rrr(t_tuple *t, bool print_or_not)
 {
 	rrotate(&t->a);
 	rrotate(&t->b);
-	ft_printf("rrr\n");
+	if (print_or_not)
+		ft_printf("rrr\n");
 }

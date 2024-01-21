@@ -70,17 +70,17 @@ void				rotate(t_stack **st);
 void				rrotate(t_stack **st);
 
 // Literal Operations
-void				sa(t_tuple t);
-void				sb(t_tuple t);
-void				ss(t_tuple t);
-void				pa(t_tuple *t);
-void				pb(t_tuple *t);
-void				ra(t_tuple *t);
-void				rb(t_tuple *t);
-void				rr(t_tuple *t);
-void				rra(t_tuple *t);
-void				rrb(t_tuple *t);
-void				rrr(t_tuple *t);
+void				sa(t_tuple t, bool print_or_not);
+void				sb(t_tuple t, bool print_or_not);
+void				ss(t_tuple t, bool print_or_not);
+void				pa(t_tuple *t, bool print_or_not);
+void				pb(t_tuple *t, bool print_or_not);
+void				ra(t_tuple *t, bool print_or_not);
+void				rb(t_tuple *t, bool print_or_not);
+void				rr(t_tuple *t, bool print_or_not);
+void				rra(t_tuple *t, bool print_or_not);
+void				rrb(t_tuple *t, bool print_or_not);
+void				rrr(t_tuple *t, bool print_or_not);
 
 // SORT
 void				sort_algo(t_tuple *t);

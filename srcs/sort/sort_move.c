@@ -43,23 +43,23 @@ void	move_cheapest_to_b(t_tuple *t)
 	c = init_temp_cheapest(t->a);
 	if (c.cheapest_is_above && c.target_is_above)
 		while (t->a->nb != c.cheapest_nb && t->b->nb != c.target_nb)
-			rr(t);
+			rr(t, 1);
 	if (!c.cheapest_is_above && !c.target_is_above)
 		while (t->a->nb != c.cheapest_nb && t->b->nb != c.target_nb)
-			rrr(t);
+			rrr(t, 1);
 	if (c.cheapest_is_above)
 		while (t->a->nb != c.cheapest_nb)
-			ra(t);
+			ra(t, 1);
 	else
 		while (t->a->nb != c.cheapest_nb)
-			rra(t);
+			rra(t, 1);
 	if (c.target_is_above)
 		while (t->b->nb != c.target_nb)
-			rb(t);
+			rb(t, 1);
 	else
 		while (t->b->nb != c.target_nb)
-			rrb(t);
-	pb(t);
+			rrb(t, 1);
+	pb(t, 1);
 }
 
 void	move_to_a(t_tuple *t)
@@ -69,9 +69,9 @@ void	move_to_a(t_tuple *t)
 	target_nb = t->b->target->nb;
 	if (t->b->target->is_above_median)
 		while (t->a->nb != target_nb)
-			ra(t);
+			ra(t, 1);
 	else
 		while (t->a->nb != target_nb)
-			rra(t);
-	pa(t);
+			rra(t, 1);
+	pa(t, 1);
 }
