@@ -80,14 +80,14 @@ void	set_push_costs_a(t_tuple *t)
 	a = t->a;
 	while (a)
 	{
-		if (a->is_above_median)
-			a->push_cost = a->pos;
+		if (a->is_above_median && a->target->is_above_median)
+			a->push_cost = ft_bmax(a->pos, a->target->pos);
+		else if (!a->is_above_median && !a->target->is_above_median)
+			a->push_cost = ft_bmax(st_size(t->a) - a->pos, st_size(t->b) - a->target->pos);
+		else if (a->target->is_above_median)
+			a->push_cost = a->target->pos + st_size(t->a) - a->pos;
 		else
-			a->push_cost = st_size(t->a) - a->pos;
-		if (a->target->is_above_median)
-			a->push_cost += a->target->pos;
-		else
-			a->push_cost += st_size(t->b) - a->target->pos;
+			a->push_cost = st_size(t->b) - a->target->pos + a->pos;
 		a = a->next;
 	}
 }
