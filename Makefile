@@ -27,7 +27,7 @@ BSRCS = $(DIR)/checker.c \
 UP = \033[1A
 ERASE = \033[0J
 
-all : QuoicouLibft $(NAME) bonus
+all : QuoicouLibft $(NAME)
 
 QuoicouLibft:
 	@make --silent -C $(IDIR)/QuoicouLibft
@@ -36,14 +36,21 @@ $(NAME):
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 	@echo "\033[1;32m  ● Made PushSwap\033[0m"
 
-bonus:
+$(CHECKER):
 	@$(CC) $(CFLAGS) $(BSRCS) -o $(CHECKER) $(LIBFT)
 	@echo "\033[1;32m  ● Made Checker\033[0m"
 
+bonus: 
+	@make --silent $(QuoicouLibft)
+	@make --silent $(CHECKER)
+
 clean:
+	@rm -f $(NAME)
+	@rm -f $(CHECKER)
 	@make --silent fclean -C $(IDIR)/QuoicouLibft
 
 fclean:
+	@rm -f $(CHECKER)
 	@if [ -f $(NAME) ]; then \
 			make --silent fclean_no_check; \
 	fi
