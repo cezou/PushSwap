@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:55:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 17:59:08 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 18:47:03 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	checker(t_tuple *t)
 	while (operation)
 	{
 		if (!exec_and_check(t, operation))
-			return (t_clear(t), free(operation), v_printf("Error\n"), exit(1));
+			return (t_clear(t), free(operation), v_printfd(2, "Error\n"),
+				exit(1));
 		free(operation);
 		operation = get_next_line(STDIN);
 	}
