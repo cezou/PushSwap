@@ -19,7 +19,7 @@ SRCS = $(DIR)/main.c \
 		$(SDIR)/sort.c $(SDIR)/sort_init_a.c $(SDIR)/sort_init_b.c $(SDIR)/sort_move.c \
 		$(UDIR)/string_utils.c $(UDIR)/st_utilis_2.c $(UDIR)/st_utils.c
 BSRCS = $(DIR)/checker.c \
-		$(EDIR)/errors_handling_and_init.c $(EDIR)/errors_handling_utils.c \
+		$(EDIR)/errors_handling_and_init.c $(EDIR)/errors_handling_utils.c $(EDIR)/errors_handling_checker.c \
 		$(ODIR)/ops_rotate.c $(ODIR)/ops_rrr.c $(ODIR)/ops_swap_push.c $(ODIR)/st_operations.c \
 		$(SDIR)/sort.c $(SDIR)/sort_init_a.c $(SDIR)/sort_init_b.c $(SDIR)/sort_move.c \
 		$(UDIR)/string_utils.c $(UDIR)/st_utilis_2.c $(UDIR)/st_utils.c

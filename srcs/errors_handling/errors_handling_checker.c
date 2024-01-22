@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_handling_and_init.c                         :+:      :+:    :+:   */
+/*   errors_handling_checker.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 23:47:45 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/22 17:46:49 by cviegas          ###   ########.fr       */
+/*   Created: 2024/01/22 17:40:34 by cviegas           #+#    #+#             */
+/*   Updated: 2024/01/22 18:12:34 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ static bool	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 	if (ac == 2)
 	{
 		if (is_valid_int(av[1]))
-			return (0);
+		{
+			*args = create_args(av[1]);
+			*are_args_a_string = 1;
+			return (1);
+		}
 		if (!is_valid_string(av[1]))
 			return (v_printf("Error\n"), 0);
 		*args = create_args(av[1]);
@@ -29,7 +33,8 @@ static bool	one_arg(int *are_args_a_string, char ***args, int ac, char **av)
 	return (1);
 }
 
-bool	init_and_handle_errors(t_stack **a, t_stack **b, int ac, char **av)
+bool	init_and_handle_errors_check(t_stack **a, t_stack **b, int ac,
+		char **av)
 {
 	char	**args;
 	int		are_args_a_string;
@@ -52,53 +57,5 @@ bool	init_and_handle_errors(t_stack **a, t_stack **b, int ac, char **av)
 		return (free_args(args, are_args_a_string), st_clear(a),
 			v_printf("Error\n"), 0);
 	free_args(args, are_args_a_string);
-	return (1);
-}
-
-bool	is_valid_int(const char *s)
-{
-	long long int	atonb;
-	size_t			i;
-	int				sign;
-	bool			voidb;
-
-	if (!s || !s[0])
-		return (0);
-	atonb = 0;
-	i = skip_i_and_sign(s, &sign, &voidb);
-	if (!s[i])
-		return (0);
-	while (s[i])
-	{
-		if (!ft_isdigit(s[i]))
-			return (0);
-		atonb *= 10;
-		atonb += s[i] - '0';
-		i++;
-	}
-	atonb *= sign;
-	if (atonb >= MIN_INT && atonb <= MAX_INT && check_relou_nbrs(s, atonb))
-		return (1);
-	return (0);
-}
-
-bool	is_valid_string(const char *s)
-{
-	size_t	i;
-	char	**args;
-
-	if (!s[0] || !s)
-		return (0);
-	args = create_args(s);
-	if (!args)
-		return (0);
-	i = 0;
-	while (args[i])
-	{
-		if (!is_valid_int(args[i]))
-			return (free_split(args), 0);
-		i++;
-	}
-	free_split(args);
 	return (1);
 }

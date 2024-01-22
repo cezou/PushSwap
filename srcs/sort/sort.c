@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:11:36 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/22 16:43:30 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 17:32:29 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ bool	is_sorted(t_stack *st)
 {
 	int	temp;
 
+	if (st_size(st) <= 1)
+		return (1);
 	temp = st->nb;
 	st = st->next;
 	while (st)

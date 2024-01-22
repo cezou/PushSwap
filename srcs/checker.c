@@ -6,12 +6,11 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:55:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 16:44:08 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 17:59:08 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
-#include "../includes/push_swap.h"
 
 bool	ops_cmp(char *op, char *expected)
 {
@@ -73,7 +72,7 @@ int	main(int ac, char **av)
 
 	if (ac <= 1)
 		return (0);
-	if (!init_and_handle_errors(&t.a, &t.b, ac, av))
+	if (!init_and_handle_errors_check(&t.a, &t.b, ac, av))
 		return (0);
 	checker(&t);
 	t_clear(&t);
