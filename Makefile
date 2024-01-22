@@ -1,4 +1,5 @@
 NAME = push_swap
+CHECKER = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
@@ -17,19 +18,27 @@ SRCS = $(DIR)/main.c \
 		$(ODIR)/ops_rotate.c $(ODIR)/ops_rrr.c $(ODIR)/ops_swap_push.c $(ODIR)/st_operations.c \
 		$(SDIR)/sort.c $(SDIR)/sort_init_a.c $(SDIR)/sort_init_b.c $(SDIR)/sort_move.c \
 		$(UDIR)/string_utils.c $(UDIR)/st_utilis_2.c $(UDIR)/st_utils.c
-OBJS = $(SRCS:.c=.o)
+BSRCS = $(DIR)/checker.c \
+		$(EDIR)/errors_handling_and_init.c $(EDIR)/errors_handling_utils.c \
+		$(ODIR)/ops_rotate.c $(ODIR)/ops_rrr.c $(ODIR)/ops_swap_push.c $(ODIR)/st_operations.c \
+		$(SDIR)/sort.c $(SDIR)/sort_init_a.c $(SDIR)/sort_init_b.c $(SDIR)/sort_move.c \
+		$(UDIR)/string_utils.c $(UDIR)/st_utilis_2.c $(UDIR)/st_utils.c
 
 UP = \033[1A
 ERASE = \033[0J
 
-all : QuoicouLibft $(NAME)
+all : QuoicouLibft $(NAME) bonus
 
 QuoicouLibft:
 	@make --silent -C $(IDIR)/QuoicouLibft
 
-$(NAME): $(SRCS) $(MANDATORY)
+$(NAME):
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) $(LIBFT)
-	@echo "\033[1;32m    Made PushSwap\033[0m"
+	@echo "\033[1;32m  ● Made PushSwap\033[0m"
+
+bonus:
+	@$(CC) $(CFLAGS) $(BSRCS) -o $(CHECKER) $(LIBFT)
+	@echo "\033[1;32m  ● Made Checker\033[0m"
 
 clean:
 	@make --silent fclean -C $(IDIR)/QuoicouLibft

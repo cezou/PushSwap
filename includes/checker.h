@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 16:11:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/22 16:21:28 by cviegas          ###   ########.fr       */
+/*   Created: 2024/01/22 15:44:55 by cviegas           #+#    #+#             */
+/*   Updated: 2024/01/22 15:46:01 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-int	main(int ac, char **av)
-{
-	t_tuple	t;
-
-	if (ac <= 1)
-		return (0);
-	if (!init_and_handle_errors(&t.a, &t.b, ac, av))
-		return (0);
-	sort_algo(&t);
-	t_clear(&t);
-}
+#ifndef CHECKER_H
+# define CHECKER_H
+# define STDIN 0
+#endif

@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/22 15:33:08 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:18:50 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ size_t	skip_i_and_sign(const char *s, int *sign, bool *is_there_plus)
 	return (i);
 }
 
-size_t	number_of_0(const char *s, bool *is_there_plus)
+size_t	number_of_0(const char *s, bool *is_there_plus, bool *is_this_zero)
 {
 	size_t	nb_zero;
 	size_t	i;
@@ -41,7 +41,10 @@ size_t	number_of_0(const char *s, bool *is_there_plus)
 
 	nb_zero = 0;
 	*is_there_plus = 0;
+	*is_this_zero = 1;
 	i = skip_i_and_sign(s, &sign, is_there_plus) - 1;
+	if (!s[i + 1])
+		*is_this_zero = 1;
 	while (s[++i] == '0')
 		nb_zero++;
 	return (nb_zero);
@@ -52,8 +55,11 @@ bool	check_relou_nbrs(const char *s, long long int atonb)
 	size_t	nb_zero;
 	char	*ltoa;
 	bool	is_there_plus;
+	bool	is_this_zero;
 
-	nb_zero = number_of_0(s, &is_there_plus);
+	nb_zero = number_of_0(s, &is_there_plus, &is_this_zero);
+	if (is_this_zero)
+		return (1);
 	ltoa = ft_ltoa(atonb);
 	if (ft_strlen(s) - nb_zero != ft_strlen(ltoa) + is_there_plus)
 		return (free(ltoa), 0);
