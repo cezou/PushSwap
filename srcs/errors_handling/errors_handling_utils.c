@@ -3,24 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   errors_handling_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:13:33 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/21 21:53:04 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/22 15:18:45 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static size_t	skip_i_and_sign(const char *s, int *sign)
+static size_t	skip_i_and_sign(const char *s, int *sign, bool *is_there_plus)
 {
 	size_t	i;
 
 	i = 0;
+	*sign = 1;
 	while (is_whitespace(s[i]))
 		i++;
 	if (s[i] == '+')
+	{
 		i++;
+		*is_there_plus = 1;
+	}
 	else if (s[i] == '-')
 	{
 		*sign = -1;
@@ -29,17 +33,46 @@ static size_t	skip_i_and_sign(const char *s, int *sign)
 	return (i);
 }
 
+size_t	number_of_0(const char *s, bool *is_there_plus)
+{
+	size_t	nb_zero;
+	size_t	i;
+	int		sign;
+
+	nb_zero = 0;
+	*is_there_plus = 0;
+	i = skip_i_and_sign(s, &sign, is_there_plus) - 1;
+	while (s[++i] == '0')
+		nb_zero++;
+	return (nb_zero);
+}
+
+bool	check_relou_nbrs(const char *s, long long int atonb)
+{
+	size_t	nb_zero;
+	char	*ltoa;
+	bool	is_there_plus;
+
+	nb_zero = number_of_0(s, &is_there_plus);
+	ltoa = ft_ltoa(atonb);
+	ft_printf("len - 0s + sign :%d\n", ft_strlen(s) - nb_zero + is_there_plus);
+	ft_printf("len(itoa) : %d\n", ft_strlen(ltoa));
+	if (ft_strlen(s) - nb_zero != ft_strlen(ltoa) + is_there_plus)
+		return (free(ltoa), 0);
+	return (free(ltoa), 1);
+}
+
 bool	is_valid_int(const char *s)
 {
 	long long int	atonb;
 	size_t			i;
 	int				sign;
+	bool			voidb;
 
 	if (!s || !s[0])
-			return (0);
+		return (0);
 	atonb = 0;
-	sign = 1;
-	i = skip_i_and_sign(s, &sign);
+	i = skip_i_and_sign(s, &sign, &voidb);
 	if (!s[i])
 		return (0);
 	while (s[i])
@@ -51,7 +84,7 @@ bool	is_valid_int(const char *s)
 		i++;
 	}
 	atonb *= sign;
-	if (atonb >= MIN_INT && atonb <= MAX_INT)
+	if (atonb >= MIN_INT && atonb <= MAX_INT && check_relou_nbrs(s, atonb))
 		return (1);
 	return (0);
 }
@@ -76,6 +109,8 @@ bool	is_valid_string(const char *s)
 	size_t	i;
 	char	**args;
 
+	if (!s[0] || !s)
+		return (0);
 	args = create_args(s);
 	if (!args)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:33:49 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/13 18:12:00 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 14:58:46 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char				**ft_split(char const *s, char c);
 char				**ft_split_charset(const char *str, char *charset);
 
 char				*ft_itoa(int n);
+char				*ft_ltoa(long long int n);
 
 // fd
 void				ft_putchar_fd(char c, int fd);
