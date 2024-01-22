@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:00:24 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/18 18:50:34 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 15:34:39 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,13 @@ typedef struct s_stack
 // Errors Holding
 bool				init_and_handle_errors(t_stack **a, t_stack **b, int ac,
 						char **av);
+bool				one_arg(int *are_args_a_string, char ***args, int ac,
+						char **av);
 bool				is_whitespace(char c);
 bool				is_valid_int(const char *s);
+size_t				skip_i_and_sign(const char *s, int *sign,
+						bool *is_there_plus);
+bool				check_relou_nbrs(const char *s, long long int atonb);
 bool				is_valid_string(const char *s);
 bool				is_there_a_double(t_stack *st);
 char				*str_whitespaces(void);

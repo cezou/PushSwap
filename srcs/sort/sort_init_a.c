@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:53:26 by cviegas           #+#    #+#             */
-/*   Updated: 2024/01/18 17:44:19 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 15:36:39 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void	set_push_costs_a(t_tuple *t)
 		if (a->is_above_median && a->target->is_above_median)
 			a->push_cost = ft_bmax(a->pos, a->target->pos);
 		else if (!a->is_above_median && !a->target->is_above_median)
-			a->push_cost = ft_bmax(st_size(t->a) - a->pos, st_size(t->b) - a->target->pos);
+			a->push_cost = ft_bmax(st_size(t->a) - a->pos, st_size(t->b)
+					- a->target->pos);
 		else if (a->target->is_above_median)
 			a->push_cost = a->target->pos + st_size(t->a) - a->pos;
 		else
