@@ -6,7 +6,7 @@
 /*   By: cviegas <cviegas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:55:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 16:05:24 by cviegas          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:44:08 by cviegas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	checker(t_tuple *t)
 		free(operation);
 		operation = get_next_line(STDIN);
 	}
+	if (!t->a)
+		return (v_printf("KO\n"));
 	if (is_sorted(t->a) && !t->b)
 		return (v_printf("OK\n"));
 	ft_printf("KO\n");
